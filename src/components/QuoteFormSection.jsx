@@ -42,50 +42,50 @@ export default function QuoteFormSection() {
   };
 
   return (
-    <section id="contact" className="bg-sky-brand py-20 sm:py-32 px-6 sm:px-10">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <section id="contact" className="bg-sky-brand py-12 md:py-32 px-4 sm:px-8 md:px-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         {/* Left Column Text Copy matching Page 4 PDF */}
-        <div className="lg:col-span-5 space-y-6">
-          <h2 className="font-display font-extrabold text-4xl sm:text-6xl text-maroon-brand leading-tight tracking-tight">
+        <div className="lg:col-span-5 space-y-4 md:space-y-6">
+          <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-maroon-brand leading-tight tracking-tight">
             Book an estimate
           </h2>
 
-          <h3 className="font-display font-bold text-2xl sm:text-3xl text-maroon-brand">
+          <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl text-maroon-brand">
             Ready for fresh walls?
           </h3>
 
-          <p className="text-maroon-brand/90 font-medium text-lg sm:text-xl leading-relaxed">
+          <p className="text-maroon-brand/90 font-medium text-base md:text-xl leading-relaxed">
             Fill out the quick form and tell us about your space: size, wallpaper type, and timeline. We’ll respond within 24 hours with an accurate estimate.
           </p>
 
-          <div className="pt-4 flex items-center gap-3 text-maroon-brand/80 font-semibold text-sm">
-            <Clock className="w-5 h-5 text-maroon-brand" />
+          <div className="pt-2 md:pt-4 flex items-center gap-3 text-maroon-brand/80 font-semibold text-sm">
+            <Clock className="w-5 h-5 text-maroon-brand shrink-0" />
             <span>Average response time: &lt; 24 hours</span>
           </div>
         </div>
 
         {/* Right Column Form Card matching Page 4 PDF */}
         <div className="lg:col-span-7">
-          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-white/80 relative">
-            <h3 className="font-display font-extrabold text-3xl sm:text-4xl text-maroon-brand mb-8">
+          <div className="bg-white rounded-3xl p-5 xs:p-6 sm:p-8 md:p-12 shadow-2xl border border-white/80 relative">
+            <h3 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-maroon-brand mb-6 md:mb-8">
               Request your free quote
             </h3>
 
             {status.submitted ? (
-              <div className="bg-green-50 border border-green-200 text-green-800 p-6 rounded-2xl flex items-start gap-4 animate-fadeIn">
+              <div className="bg-green-50 border border-green-200 text-green-800 p-5 sm:p-6 rounded-2xl flex items-start gap-3 sm:gap-4 animate-fadeIn">
                 <CheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-lg">Thank you! Your quote request has been sent.</h4>
-                  <p className="text-sm mt-1 text-green-700">
+                  <h4 className="font-bold text-base sm:text-lg">Thank you! Your quote request has been sent.</h4>
+                  <p className="text-xs sm:text-sm mt-1 text-green-700">
                     Our team at RK Interior will review your details and get back to you within 24 hours.
                   </p>
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 {/* Name Input */}
                 <div>
-                  <label htmlFor="name" className="block text-maroon-brand font-semibold text-base mb-2">
+                  <label htmlFor="name" className="block text-maroon-brand font-semibold text-sm sm:text-base mb-1.5 sm:mb-2">
                     Name
                   </label>
                   <input
@@ -96,13 +96,13 @@ export default function QuoteFormSection() {
                     onChange={handleChange}
                     required
                     placeholder="Your full name"
-                    className="w-full px-5 py-4 rounded-xl border border-maroon-brand/20 bg-gray-50/50 text-maroon-brand text-base focus:bg-white focus:border-maroon-brand focus:ring-2 focus:ring-maroon-brand/20 outline-none transition-all duration-200"
+                    className="w-full px-4 sm:px-5 py-3.5 sm:py-4 rounded-xl border border-maroon-brand/20 bg-gray-50/50 text-maroon-brand text-base focus:bg-white focus:border-maroon-brand focus:ring-2 focus:ring-maroon-brand/20 outline-none transition-all duration-200"
                   />
                 </div>
 
                 {/* Email Address Input */}
                 <div>
-                  <label htmlFor="email" className="block text-maroon-brand font-semibold text-base mb-2">
+                  <label htmlFor="email" className="block text-maroon-brand font-semibold text-sm sm:text-base mb-1.5 sm:mb-2">
                     Email address
                   </label>
                   <input
@@ -113,13 +113,13 @@ export default function QuoteFormSection() {
                     onChange={handleChange}
                     required
                     placeholder="you@example.com"
-                    className="w-full px-5 py-4 rounded-xl border border-maroon-brand/20 bg-gray-50/50 text-maroon-brand text-base focus:bg-white focus:border-maroon-brand focus:ring-2 focus:ring-maroon-brand/20 outline-none transition-all duration-200"
+                    className="w-full px-4 sm:px-5 py-3.5 sm:py-4 rounded-xl border border-maroon-brand/20 bg-gray-50/50 text-maroon-brand text-base focus:bg-white focus:border-maroon-brand focus:ring-2 focus:ring-maroon-brand/20 outline-none transition-all duration-200"
                   />
                 </div>
 
                 {/* Message Input */}
                 <div>
-                  <label htmlFor="message" className="block text-maroon-brand font-semibold text-base mb-2">
+                  <label htmlFor="message" className="block text-maroon-brand font-semibold text-sm sm:text-base mb-1.5 sm:mb-2">
                     Leave a message
                   </label>
                   <textarea
@@ -129,7 +129,7 @@ export default function QuoteFormSection() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell us about your room size, wallpaper choice, or timeline..."
-                    className="w-full px-5 py-4 rounded-xl border border-maroon-brand/20 bg-gray-50/50 text-maroon-brand text-base focus:bg-white focus:border-maroon-brand focus:ring-2 focus:ring-maroon-brand/20 outline-none transition-all duration-200 resize-y"
+                    className="w-full px-4 sm:px-5 py-3.5 sm:py-4 rounded-xl border border-maroon-brand/20 bg-gray-50/50 text-maroon-brand text-base focus:bg-white focus:border-maroon-brand focus:ring-2 focus:ring-maroon-brand/20 outline-none transition-all duration-200 resize-y"
                   />
                 </div>
 
@@ -137,7 +137,7 @@ export default function QuoteFormSection() {
                 <button
                   type="submit"
                   disabled={status.submitting}
-                  className="w-full bg-pink-brand hover:bg-pink-vivid active:scale-[0.99] text-maroon-brand font-display font-extrabold text-xl py-4 sm:py-5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full min-h-[48px] bg-pink-brand hover:bg-pink-vivid active:scale-[0.99] text-maroon-brand font-display font-extrabold text-lg sm:text-xl py-3.5 sm:py-5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   {status.submitting ? (
                     <div className="w-6 h-6 border-3 border-maroon-brand border-t-transparent rounded-full animate-spin" />
@@ -150,7 +150,7 @@ export default function QuoteFormSection() {
                 </button>
 
                 {/* PDF Footer Subtext */}
-                <p className="text-center text-maroon-brand/70 text-xs sm:text-sm mt-4">
+                <p className="text-center text-maroon-brand/70 text-xs sm:text-sm mt-3 sm:mt-4">
                   Your Canva profile name won’t be shared. Never submit passwords.
                 </p>
               </form>

@@ -15,14 +15,26 @@
   }
 }
 
-/* Ultra-Bold ELEVATE Display Typography (+2mm expansion, 14px stroke, 0.025em letter spacing to prevent overlap) */
+/* Ultra-Bold ELEVATE Display Typography (Responsive stroke: 5px on mobile, 8px on tablet, 14px on desktop) */
 .font-elevate {
   font-family: 'Archivo Black', 'Montserrat', 'Syne', sans-serif;
   font-weight: 900;
   letter-spacing: 0.025em;
-  -webkit-text-stroke: 14px #FFFFFF;
+  -webkit-text-stroke: 5px #FFFFFF;
   paint-order: stroke fill;
   line-height: 0.9;
+}
+
+@media (min-width: 640px) {
+  .font-elevate {
+    -webkit-text-stroke: 8px #FFFFFF;
+  }
+}
+
+@media (min-width: 768px) {
+  .font-elevate {
+    -webkit-text-stroke: 14px #FFFFFF;
+  }
 }
 
 /* Custom Scrollbar */
