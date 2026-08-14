@@ -2,12 +2,14 @@ import React from 'react';
 
 export default function HeroSection({ onOpenConsultation }) {
   return (
-    <section className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-pink-600">
+    <section id="home" className="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-pink-600">
       {/* Background Image matching user screenshot */}
       <div className="absolute inset-0 z-0">
         <img
           src="/assets/hero_bg.jpg"
           alt="R K Interior Professional Wallpaper Installation & Removal Room"
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover object-center scale-100"
         />
         {/* Subtle overlay matching screenshot */}
@@ -15,7 +17,7 @@ export default function HeroSection({ onOpenConsultation }) {
       </div>
 
       {/* Hero Content Container with clean non-overlapping vertical margins */}
-      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 md:px-10 w-full pt-10 pb-10 sm:pt-8 sm:pb-14 flex flex-col justify-center">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 md:px-10 w-full pt-20 sm:pt-28 pb-10 sm:pb-14 flex flex-col justify-center">
         
         {/* R K Interior Header sitting cleanly above ELEVATE with no overlap */}
         <div className="w-full text-left pl-1 sm:pl-2 mb-2 sm:mb-5">

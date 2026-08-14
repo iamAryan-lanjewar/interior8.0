@@ -1,7 +1,7 @@
 import React from 'react';
-import { Eye, Maximize2 } from 'lucide-react';
+import { Maximize2 } from 'lucide-react';
 
-export default function ProjectGallery({ onSelectImage }) {
+export default function ProjectGallery({ onSelectImage, onOpenProjects }) {
   const galleryImages = [
     {
       src: "/assets/gallery_1.jpg",
@@ -33,33 +33,65 @@ export default function ProjectGallery({ onSelectImage }) {
           </p>
         </div>
 
-        {/* 3 Gallery Grid Images side-by-side */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
+        {/* 3 Gallery Grid Images matching original PDF layout with titles below */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {galleryImages.map((item, idx) => (
             <div
               key={idx}
               onClick={() => onSelectImage(item)}
-              className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white/60 group cursor-pointer h-[260px] xs:h-[320px] sm:h-[380px] md:h-[420px] bg-white hover-lift"
+              className="flex flex-col group cursor-pointer"
             >
-              <img
-                src={item.src}
-                alt={`${item.title} - ${item.subtitle} by RK Interior`}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-maroon-brand/90 via-maroon-brand/30 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 sm:p-8 text-white">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest px-2.5 py-1 rounded-full bg-pink-brand text-maroon-brand">
-                    View Project
-                  </span>
-                  <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
-                    <Maximize2 className="w-4 h-4 text-white" />
+              {/* Image Container matching original design */}
+              <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white/60 h-[260px] xs:h-[320px] sm:h-[380px] md:h-[400px] bg-white hover-lift">
+                <img
+                  src={item.src}
+                  alt={`${item.title} - ${item.subtitle} by RK Interior`}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-maroon-brand/90 via-maroon-brand/30 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 sm:p-8 text-white">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[10px] sm:text-xs uppercase font-bold tracking-widest px-2.5 py-1 rounded-full bg-pink-brand text-maroon-brand">
+                      View Project
+                    </span>
+                    <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
+                      <Maximize2 className="w-4 h-4 text-white" />
+                    </div>
                   </div>
+                  <h3 className="font-display font-bold text-lg sm:text-xl">{item.title}</h3>
+                  <p className="text-white/80 text-xs mt-0.5 sm:mt-1">{item.subtitle}</p>
                 </div>
-                <h3 className="font-display font-bold text-lg sm:text-xl">{item.title}</h3>
-                <p className="text-white/80 text-xs mt-0.5 sm:mt-1">{item.subtitle}</p>
+              </div>
+
+              {/* Project Title directly below image in exact brand font style */}
+              <div className="mt-3.5 px-1 text-center sm:text-left">
+                <h3 className="font-display font-extrabold text-xl sm:text-2xl text-maroon-brand leading-snug group-hover:text-white transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-maroon-brand/80 text-xs sm:text-sm font-medium mt-1">
+                  {item.subtitle}
+                </p>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Projects Button on the Bottom Right */}
+        <div className="flex justify-end mt-8 sm:mt-12">
+          <button
+            onClick={() => {
+              if (onOpenProjects) {
+                onOpenProjects();
+              } else {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="bg-maroon-brand hover:bg-maroon-dark text-white font-display font-extrabold text-sm sm:text-base px-7 py-3 sm:px-8 sm:py-3.5 rounded-full shadow-xl hover-lift transition-all duration-300 flex items-center gap-2.5 cursor-pointer"
+          >
+            <span>Projects</span>
+            <span className="text-pink-brand font-bold text-lg">→</span>
+          </button>
         </div>
       </div>
     </section>

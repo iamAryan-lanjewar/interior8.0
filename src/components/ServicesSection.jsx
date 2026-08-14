@@ -39,7 +39,9 @@ export default function ServicesSection() {
                   <img
                     src={service.image}
                     alt={`${service.title} wallpaper service by RK Interior & NEST WALLPAPERS`}
-                    className="w-full h-[220px] xs:h-[280px] sm:h-[350px] lg:h-[400px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
               </div>

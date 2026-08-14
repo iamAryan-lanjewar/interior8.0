@@ -25,17 +25,9 @@ export default function FreeConsultation({ onOpenConsultation }) {
             </h2>
 
             {/* Paragraph Text */}
-            <p className="text-maroon-brand/90 font-medium text-base md:text-xl leading-relaxed max-w-xl mb-6 md:mb-8">
+            <p className="text-maroon-brand/90 font-medium text-base md:text-xl leading-relaxed max-w-xl">
               Book a full-room installation this month and get a free color and pattern consultation. We’ll help you find a style that fits your home’s light, layout, and personality.
             </p>
-
-            {/* Action Button */}
-            <button
-              onClick={onOpenConsultation}
-              className="w-full xs:w-auto min-h-[48px] bg-maroon-brand hover:bg-maroon-dark text-white font-display font-bold text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-full shadow-lg hover-lift transition-all duration-300 cursor-pointer flex items-center justify-center"
-            >
-              Book your free consultation
-            </button>
           </div>
 
           {/* Bottom Brand Logo matching PDF Page 1 */}
