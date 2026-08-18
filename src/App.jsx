@@ -26,6 +26,17 @@ export default function App() {
             setCurrentPage('home');
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
+          onBookAppointment={() => {
+            setCurrentPage('home');
+            setTimeout(() => {
+              const contactEl = document.getElementById('contact');
+              if (contactEl) {
+                contactEl.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }, 100);
+          }}
           onSelectImage={(img) => setSelectedGalleryImage(img)}
         />
 

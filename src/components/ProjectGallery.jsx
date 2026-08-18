@@ -66,7 +66,7 @@ export default function ProjectGallery({ onSelectImage, onOpenProjects }) {
 
               {/* Project Title directly below image in exact brand font style */}
               <div className="mt-3.5 px-1 text-center sm:text-left">
-                <h3 className="font-display font-extrabold text-xl sm:text-2xl text-maroon-brand leading-snug group-hover:text-white transition-colors">
+                <h3 className="font-display font-extrabold text-xl sm:text-2xl text-maroon-brand leading-snug group-hover:text-pink-vivid transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-maroon-brand/80 text-xs sm:text-sm font-medium mt-1">

@@ -10,7 +10,7 @@ export default function TrustBadges() {
     {
       title1: "High-quality",
       title2: "materials",
-      description: "We work with top-grade adhesives and wallpapers that last."
+      description: "We source premium materials and finishes that enhance every interior and stand the test of time."
     },
     {
       title1: "Respect for",

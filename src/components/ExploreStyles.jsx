@@ -3,16 +3,22 @@ import React from 'react';
 export default function ExploreStyles() {
   const styles = [
     {
-      title: "Geometric & Modern",
-      image: "/assets/style_geometric.jpg"
+      title: "Modern Minimalist",
+      image: "/assets/style_geometric.jpg",
+      tag: "Popular 2026",
+      desc: "Clean lines, open spaces & contemporary design aesthetics."
     },
     {
-      title: "Nature-Inspired",
-      image: "/assets/style_nature.jpg"
+      title: "Biophilic & Natural",
+      image: "/assets/style_nature.jpg",
+      tag: "Trending",
+      desc: "Nature-inspired palettes, organic materials & indoor greenery."
     },
     {
-      title: "Textured & Grasscloth",
-      image: "/assets/style_grasscloth.jpg"
+      title: "Luxury & Textured",
+      image: "/assets/style_grasscloth.jpg",
+      tag: "Luxury Finish",
+      desc: "Rich textures, layered decor & refined high-end interiors."
     }
   ];
 
@@ -21,7 +27,7 @@ export default function ExploreStyles() {
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <h2 className="text-center font-display font-extrabold text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-maroon-brand tracking-tight mb-8 sm:mb-12 md:mb-16">
-          Explore styles
+          Explore design styles
         </h2>
 
         {/* 3 Style Cards Grid matching Page 3 PDF */}
@@ -35,16 +41,24 @@ export default function ExploreStyles() {
               <div className="rounded-2xl overflow-hidden mb-4 sm:mb-6 aspect-square bg-gray-100 relative">
                 <img
                   src={style.image}
-                  alt={`${style.title} Wallpaper Pattern & Texture Sample`}
+                  alt={`${style.title} Interior Design Style by RK Interior`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
+                <div className="absolute top-3 left-3 bg-maroon-brand/90 backdrop-blur-md text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                  {style.tag}
+                </div>
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               </div>
 
-              {/* Swatch Title Label */}
-              <h3 className="text-center font-display font-bold text-lg sm:text-xl md:text-2xl text-maroon-brand pb-2 sm:pb-3">
-                {style.title}
-              </h3>
+              {/* Swatch Title & Subtitle */}
+              <div className="text-center pb-2 sm:pb-3 space-y-1">
+                <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-maroon-brand">
+                  {style.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-maroon-brand/75 font-medium">
+                  {style.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>

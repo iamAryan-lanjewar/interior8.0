@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Home, 
+  Info,
   Layers, 
   Palette, 
   Image as ImageIcon, 
@@ -37,11 +38,12 @@ export default function Navbar() {
 
   const navItems = [
     { id: 'home', label: 'Home', number: '01', icon: Home, description: 'Elevate your space with RK Interior' },
-    { id: 'services', label: 'Services', number: '02', icon: Layers, description: 'Installation, Removal & Wall Prep' },
-    { id: 'styles', label: 'Explore Styles', number: '03', icon: Palette, description: 'Geometric, Nature & Textured' },
-    { id: 'gallery', label: 'Project Gallery', number: '04', icon: ImageIcon, description: 'Real transformations & past work' },
-    { id: 'estimates', label: 'Free Estimates', number: '05', icon: Calculator, description: 'Why precision saves you money' },
-    { id: 'contact', label: 'Book an Estimate', number: '06', icon: Send, description: 'Request your fast 24h quote' },
+    { id: 'about', label: 'About Us', number: '02', icon: Info, description: 'Free consultation & NEST Wallpapers' },
+    { id: 'services', label: 'Services', number: '03', icon: Layers, description: 'Space Planning, Makeover & Styling' },
+    { id: 'styles', label: 'Explore Styles', number: '04', icon: Palette, description: 'Minimalist, Biophilic & Luxury' },
+    { id: 'gallery', label: 'Project Gallery', number: '05', icon: ImageIcon, description: 'Real transformations & past work' },
+    { id: 'estimates', label: 'Free Estimates', number: '06', icon: Calculator, description: 'Why precision saves you money' },
+    { id: 'contact', label: 'Book an Estimate', number: '07', icon: Send, description: 'Request your fast 24h quote' },
   ];
 
   const handleNavClick = (id) => {
@@ -185,7 +187,7 @@ export default function Navbar() {
               <span>Response in &lt; 24h</span>
             </span>
             <span className="text-[11px] bg-white px-2.5 py-1 rounded-full border border-maroon-brand/10 font-bold">
-              R K Interior & NEST
+              R K Interior
             </span>
           </div>
         </div>

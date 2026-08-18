@@ -10,7 +10,7 @@ export default function EstimatesInfo({ onOpenQuote }) {
           <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/60 group">
             <img
               src="/assets/estimates_bathroom.jpg"
-              alt="Accurate free wallpaper estimate for bathroom and home interiors by RK Interior"
+              alt="Accurate free interior design estimate for home spaces by RK Interior"
               className="w-full h-[260px] xs:h-[320px] sm:h-[420px] md:h-[520px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-maroon-brand/20 via-transparent to-transparent opacity-60" />
@@ -39,8 +39,29 @@ export default function EstimatesInfo({ onOpenQuote }) {
             </div>
 
             <p className="text-maroon-brand/90 font-medium text-base md:text-xl leading-relaxed max-w-xl mb-6 md:mb-8">
-              Accurate measurements mean fewer wasted rolls and a cleaner result. Our estimates are obligation-free—no pressure, just honest guidance.
+              Accurate planning saves time and budget. Our estimates are obligation-free—no pressure, just honest guidance on the best design approach for your space.
             </p>
+
+            {/* Benefit Checklist */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+              {['Detailed space measurements', 'Zero hidden costs', 'Fast 24-hour turnaround', 'Obligation-free advice'].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-2.5 text-maroon-brand font-semibold text-sm sm:text-base">
+                  <span className="w-5 h-5 rounded-full bg-white flex items-center justify-center text-maroon-brand font-bold text-xs shrink-0 shadow-sm">✓</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Button */}
+            <div>
+              <button
+                onClick={onOpenQuote}
+                className="bg-maroon-brand hover:bg-maroon-dark text-white font-display font-extrabold text-sm sm:text-base px-8 py-4 rounded-full shadow-xl hover-lift transition-all duration-300 flex items-center gap-3 cursor-pointer"
+              >
+                <span>Request Your Free Estimate</span>
+                <Calculator className="w-5 h-5 text-pink-brand" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

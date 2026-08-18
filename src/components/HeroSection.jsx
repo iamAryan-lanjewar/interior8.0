@@ -7,7 +7,7 @@ export default function HeroSection({ onOpenConsultation }) {
       <div className="absolute inset-0 z-0">
         <img
           src="/assets/hero_bg.jpg"
-          alt="R K Interior Professional Wallpaper Installation & Removal Room"
+          alt="R K Interior Professional Interior Design & Home Transformation"
           fetchPriority="high"
           decoding="async"
           className="w-full h-full object-cover object-center scale-100"
@@ -40,8 +40,8 @@ export default function HeroSection({ onOpenConsultation }) {
 
           {/* Description line: Centered layout */}
           <p className="text-white font-normal text-sm xs:text-base sm:text-2xl text-center max-w-xs sm:max-w-2xl mb-5 sm:mb-8 leading-snug drop-shadow-md">
-            Seamless wallpaper installation and <br className="hidden sm:inline" />
-            stress-free removal.
+            Premium interior design services for <br className="hidden sm:inline" />
+            beautiful, lasting spaces.
           </p>
 
           {/* Pill CTA Button matching screenshot */}

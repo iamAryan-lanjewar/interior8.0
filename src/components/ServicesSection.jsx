@@ -4,22 +4,22 @@ import { Layers, RefreshCw, Wrench } from 'lucide-react';
 export default function ServicesSection() {
   const services = [
     {
-      title: "Installation",
+      title: "Space Planning",
       image: "/assets/service_installation.jpg",
       icon: Layers,
-      description: "From traditional paste-the-wall to modern peel-and-stick, our installers handle every type with the right tools and techniques. Each panel is aligned with laser precision, corners trimmed perfectly, and seams rolled flat."
+      description: "From furniture layout to lighting placement, our designers craft functional and beautiful interiors tailored to your lifestyle. Every corner is planned with purpose, flow, and aesthetic harmony."
     },
     {
-      title: "Removal",
+      title: "Renovation & Makeover",
       image: "/assets/service_removal.jpg",
       icon: RefreshCw,
-      description: "We gently loosen and remove old wallpaper using steam and sanding solutions. No gouging, no damage—just smooth walls ready for paint or new paper."
+      description: "We breathe new life into dated or tired spaces through complete room makeovers. From concept to completion, every detail is handled with care—no disruption, just stunning results."
     },
     {
-      title: "Prep & Repair",
+      title: "Finish & Styling",
       image: "/assets/service_prep.jpg",
       icon: Wrench,
-      description: "We repair cracks, skim coat uneven surfaces, and apply primer for perfect adhesion. Proper prep ensures your wallpaper looks professional and lasts even longer."
+      description: "We handle surface treatment, texture application, and decorative styling to complete your interior to perfection. Every finish is curated to elevate the overall design and ensure lasting quality."
     }
   ];
 
@@ -38,7 +38,7 @@ export default function ServicesSection() {
                 <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white/60 bg-white hover-lift">
                   <img
                     src={service.image}
-                    alt={`${service.title} wallpaper service by RK Interior & NEST WALLPAPERS`}
+                    alt={`${service.title} interior design service by RK Interior`}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
