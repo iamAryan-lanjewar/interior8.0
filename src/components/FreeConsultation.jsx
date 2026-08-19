@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 
 export default function FreeConsultation({ onOpenConsultation }) {
   const handleClick = () => {
@@ -36,27 +35,21 @@ export default function FreeConsultation({ onOpenConsultation }) {
         {/* Right Side: Copy & Brand Logo - Centered on Mobile */}
         <div className="lg:col-span-6 flex flex-col justify-between h-full space-y-6 md:space-y-10 text-center lg:text-left">
           <div>
-            {/* Section Title Centered on Mobile */}
-            <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-maroon-brand leading-tight tracking-tight mb-4 md:mb-8 group-hover:text-maroon-dark transition-colors text-center lg:text-left">
+            {/* "Free color consultation" is a tappable button on mobile that goes to form */}
+            <h2
+              onClick={handleGoToForm}
+              role="button"
+              tabIndex={0}
+              className="font-display font-extrabold text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-maroon-brand leading-tight tracking-tight mb-4 md:mb-8 group-hover:text-maroon-dark transition-colors text-center lg:text-left cursor-pointer sm:cursor-default active:scale-95 sm:active:scale-100 transition-transform underline decoration-maroon-brand/30 underline-offset-4 sm:no-underline"
+            >
               Free color <br className="hidden sm:inline" />
               consultation
             </h2>
 
             {/* Paragraph Text Centered on Mobile */}
-            <p className="text-maroon-brand/90 font-medium text-sm xs:text-base md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0 mb-5 sm:mb-0">
+            <p className="text-maroon-brand/90 font-medium text-sm xs:text-base md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
               Book a complimentary design session this month and receive a free color, layout, and material consultation. We'll help you discover a style that perfectly suits your home's character, light, and flow.
             </p>
-
-            {/* Mobile-Only Navigate to Form Button */}
-            <div className="sm:hidden mt-5 flex justify-center">
-              <button
-                onClick={handleGoToForm}
-                className="inline-flex items-center gap-2.5 bg-maroon-brand text-white font-display font-extrabold text-sm px-6 py-3 rounded-full shadow-xl active:scale-95 transition-transform cursor-pointer border-2 border-white/20"
-              >
-                <span>Get Your Free Quote</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
           </div>
 
           {/* Bottom Brand Logo Centered on Mobile */}
