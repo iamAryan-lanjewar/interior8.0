@@ -17,8 +17,12 @@ export default function ConsultationModal({ isOpen, onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone) {
-      alert("Please enter your Name and Mobile Number.");
+    if (!formData.name.trim()) {
+      alert("Please enter your Name.");
+      return;
+    }
+    if (!formData.phone || formData.phone.length !== 10) {
+      alert("Please enter a valid 10-digit Mobile Number.");
       return;
     }
 
@@ -140,20 +144,23 @@ export default function ConsultationModal({ isOpen, onClose }) {
                 />
               </div>
 
-              {/* SIMPLE MOBILE NUMBER */}
+              {/* SIMPLE 10-DIGIT MOBILE NUMBER */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-maroon-brand mb-1 flex items-center gap-1.5">
                   <Phone className="w-3.5 h-3.5 text-maroon-brand" />
-                  <span>Mobile Number</span>
+                  <span>Mobile Number (10 Digits)</span>
                   <span className="text-pink-600 font-bold">*</span>
                 </label>
                 <input
                   type="tel"
                   required
+                  maxLength={10}
+                  inputMode="numeric"
+                  pattern="[0-9]{10}"
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="e.g. 9876543210"
-                  className="w-full px-4 py-2.5 sm:py-3 rounded-xl border border-gray-200 text-maroon-brand text-sm sm:text-base focus:border-maroon-brand focus:ring-2 focus:ring-maroon-brand/20 outline-none"
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10) })}
+                  placeholder="9876543210"
+                  className="w-full px-4 py-2.5 sm:py-3 rounded-xl border border-gray-200 text-maroon-brand text-sm sm:text-base focus:border-maroon-brand focus:ring-2 focus:ring-maroon-brand/20 outline-none tracking-wider"
                 />
               </div>
 

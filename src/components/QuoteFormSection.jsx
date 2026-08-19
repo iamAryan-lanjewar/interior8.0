@@ -18,16 +18,34 @@ export default function QuoteFormSection() {
   });
 
   const handleChange = (e) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    const { name, value } = e.target;
+    if (name === 'phone') {
+      // Enforce strict 10-digit numbers only
+      const cleanDigits = value.replace(/\D/g, '').slice(0, 10);
+      setFormData(prev => ({
+        ...prev,
+        phone: cleanDigits
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.email) {
-      alert("Please fill in your Name, Mobile Number, and Email Address.");
+    if (!formData.name.trim()) {
+      alert("Please enter your Name.");
+      return;
+    }
+    if (!formData.phone || formData.phone.length !== 10) {
+      alert("Please enter a valid 10-digit Mobile Number.");
+      return;
+    }
+    if (!formData.email.trim()) {
+      alert("Please enter your Email Address.");
       return;
     }
 
@@ -92,7 +110,7 @@ export default function QuoteFormSection() {
   return (
     <section id="contact" className="bg-sky-brand py-12 md:py-32 px-4 sm:px-8 md:px-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-        {/* Left Column Text Copy - Left aligned on Mobile, only h3/info headings styled */}
+        {/* Left Column Text Copy */}
         <div className="lg:col-span-5 space-y-4 md:space-y-6 text-left">
           <div className="inline-flex items-center gap-2 bg-white/85 border border-maroon-brand/20 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider text-maroon-brand shadow-xs">
             <span className="w-2 h-2 rounded-full bg-pink-vivid animate-pulse" />
@@ -123,7 +141,7 @@ export default function QuoteFormSection() {
           </div>
         </div>
 
-        {/* Right Column Form Card - Original left-aligned form texture preserved */}
+        {/* Right Column Form Card */}
         <div className="lg:col-span-7">
           <div className="bg-white rounded-3xl p-5 xs:p-6 sm:p-8 md:p-12 shadow-2xl border border-white/80 relative">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6 md:mb-8">
@@ -197,11 +215,11 @@ export default function QuoteFormSection() {
                   />
                 </div>
 
-                {/* SIMPLE MOBILE NUMBER INPUT */}
+                {/* 10-DIGIT MOBILE NUMBER INPUT */}
                 <div>
                   <label htmlFor="phone" className="block text-maroon-brand font-bold text-sm sm:text-base mb-1.5 flex items-center gap-2">
                     <Phone className="w-4 h-4 text-maroon-brand/70" />
-                    <span>Mobile Number</span>
+                    <span>Mobile Number (10 Digits)</span>
                     <span className="text-pink-600 font-black">*</span>
                   </label>
                   <input
@@ -211,8 +229,11 @@ export default function QuoteFormSection() {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    placeholder="e.g. 9876543210 or +91 9876543210"
-                    className="w-full px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl border border-maroon-brand/20 bg-gray-50/60 text-maroon-brand text-base focus:bg-white focus:border-maroon-brand focus:ring-2 focus:ring-maroon-brand/20 outline-none transition-all duration-200"
+                    maxLength={10}
+                    inputMode="numeric"
+                    pattern="[0-9]{10}"
+                    placeholder="9876543210"
+                    className="w-full px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl border border-maroon-brand/20 bg-gray-50/60 text-maroon-brand text-base focus:bg-white focus:border-maroon-brand focus:ring-2 focus:ring-maroon-brand/20 outline-none transition-all duration-200 tracking-wider"
                   />
                 </div>
 
