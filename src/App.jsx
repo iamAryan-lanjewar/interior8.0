@@ -12,6 +12,7 @@ import QuoteFormSection from './components/QuoteFormSection';
 import FooterSection from './components/FooterSection';
 import ConsultationModal from './components/ConsultationModal';
 import LightboxModal from './components/LightboxModal';
+import MobileBottomNav from './components/MobileBottomNav';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -20,7 +21,7 @@ export default function App() {
 
   if (currentPage === 'projects') {
     return (
-      <div className="min-h-screen bg-pink-brand font-sans antialiased text-maroon-brand selection:bg-maroon-brand selection:text-white">
+      <div className="min-h-screen bg-pink-brand font-sans antialiased text-maroon-brand selection:bg-maroon-brand selection:text-white pb-20 sm:pb-0">
         <ProjectsPage 
           onBackToHome={() => {
             setCurrentPage('home');
@@ -44,12 +45,31 @@ export default function App() {
           image={selectedGalleryImage}
           onClose={() => setSelectedGalleryImage(null)}
         />
+
+        {/* Mobile Bottom Dock for Native App Experience */}
+        <MobileBottomNav
+          currentPage="projects"
+          onGoHome={() => {
+            setCurrentPage('home');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          onOpenProjects={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          onOpenConsultation={() => setConsultationOpen(true)}
+        />
+
+        {/* Interactive Modals */}
+        <ConsultationModal
+          isOpen={consultationOpen}
+          onClose={() => setConsultationOpen(false)}
+        />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-sky-brand font-sans antialiased text-maroon-brand selection:bg-pink-brand selection:text-maroon-brand">
+    <div className="min-h-screen bg-sky-brand font-sans antialiased text-maroon-brand selection:bg-pink-brand selection:text-maroon-brand pb-20 sm:pb-0">
       {/* Standalone Top Right Animated Navigation Menu */}
       <Navbar 
         onOpenConsultation={() => setConsultationOpen(true)}
@@ -91,6 +111,19 @@ export default function App() {
 
       {/* Page 5: Footer */}
       <FooterSection />
+
+      {/* Mobile Bottom Dock for Native App Experience */}
+      <MobileBottomNav
+        currentPage="home"
+        onGoHome={() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        onOpenProjects={() => {
+          setCurrentPage('projects');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        onOpenConsultation={() => setConsultationOpen(true)}
+      />
 
       {/* Interactive Modals */}
       <ConsultationModal

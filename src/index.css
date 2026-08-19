@@ -6,12 +6,27 @@
   html {
     scroll-behavior: smooth;
     font-family: 'Inter', sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    overscroll-behavior-y: none;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   
   h1, h2, h3, .font-display {
     font-family: 'Poppins', 'Montserrat', sans-serif;
     font-weight: 800;
     letter-spacing: -0.025em;
+  }
+
+  /* Prevent iOS auto-zoom on form inputs */
+  input, select, textarea, button {
+    touch-action: manipulation;
+    font-size: 16px;
   }
 }
 
@@ -39,14 +54,14 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #94CEFA;
 }
 ::-webkit-scrollbar-thumb {
   background: #70212B;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #54171F;
@@ -69,10 +84,28 @@
   border-color: #70212B;
 }
 
-/* Hover Lift */
+/* Hover Lift with GPU Hardware Acceleration */
 .hover-lift {
+  will-change: transform;
+  transform: translateZ(0);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
 }
 .hover-lift:hover {
-  transform: translateY(-6px);
+  transform: translateY(-6px) translateZ(0);
+}
+
+/* Native Mobile App Touch Transitions */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
