@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowRight } from 'lucide-react';
 
 export default function FreeConsultation({ onOpenConsultation }) {
   const handleClick = () => {
@@ -7,6 +8,11 @@ export default function FreeConsultation({ onOpenConsultation }) {
     } else {
       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleGoToForm = (e) => {
+    e.stopPropagation();
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -37,9 +43,20 @@ export default function FreeConsultation({ onOpenConsultation }) {
             </h2>
 
             {/* Paragraph Text Centered on Mobile */}
-            <p className="text-maroon-brand/90 font-medium text-sm xs:text-base md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p className="text-maroon-brand/90 font-medium text-sm xs:text-base md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0 mb-5 sm:mb-0">
               Book a complimentary design session this month and receive a free color, layout, and material consultation. We'll help you discover a style that perfectly suits your home's character, light, and flow.
             </p>
+
+            {/* Mobile-Only Navigate to Form Button */}
+            <div className="sm:hidden mt-5 flex justify-center">
+              <button
+                onClick={handleGoToForm}
+                className="inline-flex items-center gap-2.5 bg-maroon-brand text-white font-display font-extrabold text-sm px-6 py-3 rounded-full shadow-xl active:scale-95 transition-transform cursor-pointer border-2 border-white/20"
+              >
+                <span>Get Your Free Quote</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
 
           {/* Bottom Brand Logo Centered on Mobile */}
