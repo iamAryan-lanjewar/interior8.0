@@ -18,74 +18,74 @@ export default function FooterSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
       </div>
 
-      {/* Main Footer Content */}
+      {/* Main Footer Content - Centered on Mobile */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 md:px-10 w-full py-12 md:py-24 flex-1 flex flex-col justify-between">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           {/* Left Column: Text Copy & Social Media Info */}
-          <div className="lg:col-span-7 space-y-6 md:space-y-8">
+          <div className="lg:col-span-7 space-y-6 md:space-y-8 text-center lg:text-left">
             <div className="space-y-3">
-              <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-white leading-tight tracking-tight">
-                Let’s talk about <br />
+              <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-white leading-tight tracking-tight text-center lg:text-left">
+                Let’s talk about <br className="hidden sm:inline" />
                 your project
               </h2>
 
-              <p className="text-white/90 font-medium text-base md:text-xl leading-relaxed max-w-xl">
+              <p className="text-white/90 font-medium text-sm xs:text-base md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
                 We’re happy to answer any questions about wallpaper options, timelines, or pricing. Call, email, or send a message. We respond quickly and personally.
               </p>
             </div>
 
-            {/* Social Media Block (Moved to Left Side) */}
+            {/* Social Media Block (Centered on Mobile) */}
             <div className="space-y-3 pt-2">
-              <h3 className="font-display font-bold text-lg sm:text-xl text-white">
+              <h3 className="font-display font-bold text-lg sm:text-xl text-white text-center lg:text-left">
                 Connect with us
               </h3>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center justify-center lg:justify-start gap-4">
                 <a
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-white/10 hover:bg-pink-brand hover:text-maroon-brand text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md border border-white/15"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-pink-brand hover:text-maroon-brand text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md border border-white/15 active:scale-95"
                   aria-label="Facebook"
                 >
-                  <Facebook className="w-6 h-6" />
+                  <Facebook className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
 
                 <a
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-white/10 hover:bg-pink-brand hover:text-maroon-brand text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md border border-white/15"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-pink-brand hover:text-maroon-brand text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md border border-white/15 active:scale-95"
                   aria-label="Instagram"
                 >
-                  <Instagram className="w-6 h-6" />
+                  <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
 
                 <a
                   href="https://whatsapp.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-white/10 hover:bg-pink-brand hover:text-maroon-brand text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md border border-white/15"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-pink-brand hover:text-maroon-brand text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md border border-white/15 active:scale-95"
                   aria-label="WhatsApp"
                 >
-                  <MessageCircle className="w-6 h-6" />
+                  <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               </div>
             </div>
           </div>
 
           {/* Right Column: Contact Details & Expanded Length Mini Map */}
-          <div className="lg:col-span-5 space-y-6 md:space-y-8">
+          <div className="lg:col-span-5 space-y-6 md:space-y-8 text-center lg:text-left">
             {/* Main Office Block */}
             <div className="space-y-2.5 sm:space-y-3">
-              <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
+              <h3 className="font-display font-bold text-xl sm:text-2xl text-white text-center lg:text-left">
                 Main office
               </h3>
-              <p className="text-white/90 text-sm sm:text-lg leading-relaxed flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-pink-brand shrink-0 mt-0.5" />
+              <p className="text-white/90 text-sm sm:text-lg leading-relaxed flex items-start justify-center lg:justify-start gap-2.5">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-pink-brand shrink-0 mt-0.5" />
                 <span>Sadar, Nagpur, Maharashtra</span>
               </p>
-              <p className="text-white/90 text-sm sm:text-lg flex items-center gap-3">
-                <Phone className="w-5 h-5 text-pink-brand shrink-0" />
+              <p className="text-white/90 text-sm sm:text-lg flex items-center justify-center lg:justify-start gap-2.5">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-pink-brand shrink-0" />
                 <a href="tel:1234567890" className="hover:text-pink-brand transition-colors py-1">
                   (123) 456 7890
                 </a>
@@ -93,7 +93,7 @@ export default function FooterSection() {
 
               {/* Enhanced Map Widget with Increased Length and Width */}
               <div className="pt-2">
-                <div className="relative group bg-white/10 backdrop-blur-md p-2.5 sm:p-3 rounded-2xl border border-pink-brand/30 hover:border-pink-brand shadow-lg transition-all duration-300 hover-lift max-w-md w-full">
+                <div className="relative group bg-white/10 backdrop-blur-md p-2.5 sm:p-3 rounded-2xl border border-pink-brand/30 hover:border-pink-brand shadow-lg transition-all duration-300 hover-lift max-w-md w-full mx-auto lg:mx-0">
                   <div className="flex items-center justify-between px-1 pb-2">
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-pink-brand animate-ping" />
@@ -112,7 +112,7 @@ export default function FooterSection() {
                     </a>
                   </div>
 
-                  {/* Increased Length (Height & Aspect Ratio) */}
+                  {/* Responsive Map Frame */}
                   <div className="relative w-full h-40 sm:h-48 md:h-52 rounded-xl overflow-hidden border border-white/15 shadow-inner">
                     <iframe
                       title="RK Interior Studio Sadar Nagpur Map"
@@ -128,11 +128,11 @@ export default function FooterSection() {
 
             {/* Email Us Block */}
             <div className="space-y-2.5 sm:space-y-3">
-              <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
+              <h3 className="font-display font-bold text-xl sm:text-2xl text-white text-center lg:text-left">
                 Email us
               </h3>
-              <p className="text-white/90 text-sm sm:text-lg flex items-center gap-3">
-                <Mail className="w-5 h-5 text-pink-brand shrink-0" />
+              <p className="text-white/90 text-sm sm:text-lg flex items-center justify-center lg:justify-start gap-2.5">
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-pink-brand shrink-0" />
                 <a href="mailto:instinctt20@gmail.com" className="hover:text-pink-brand transition-colors font-medium py-1">
                   instinctt20@gmail.com
                 </a>
@@ -142,14 +142,14 @@ export default function FooterSection() {
         </div>
 
         {/* Bottom Logo & Copyright matching Page 5 PDF */}
-        <div className="pt-8 mt-8 md:pt-16 md:mt-16 border-t border-white/15 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 sm:gap-6">
+        <div className="pt-8 mt-8 md:pt-16 md:mt-16 border-t border-white/15 flex flex-col sm:flex-row items-center sm:items-end justify-between gap-4 sm:gap-6 text-center sm:text-left">
           <div className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-white tracking-tighter uppercase leading-none select-none">
             NEST <br />
             WALLPAPERS
           </div>
 
           <div className="text-white/60 text-xs font-medium">
-            © {new Date().getFullYear()} RK Interior & NEST WALLPAPERS. All rights reserved.
+            © {new Date().getFullYear()} RK Interior &amp; NEST WALLPAPERS. All rights reserved.
           </div>
         </div>
       </div>

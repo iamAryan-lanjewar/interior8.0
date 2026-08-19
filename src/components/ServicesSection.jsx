@@ -46,9 +46,9 @@ export default function ServicesSection() {
                 </div>
               </div>
 
-              {/* Service Text Description matching PDF */}
-              <div className="lg:col-span-7 space-y-3 sm:space-y-6">
-                <div className="flex items-center gap-3">
+              {/* Service Text Description - Centered on Mobile */}
+              <div className="lg:col-span-7 space-y-3 sm:space-y-6 text-center lg:text-left">
+                <div className="flex items-center justify-center lg:justify-start gap-3">
                   <div className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center text-maroon-brand shadow-sm">
                     <IconComponent className="w-5 h-5" />
                   </div>
@@ -57,11 +57,11 @@ export default function ServicesSection() {
                   </span>
                 </div>
 
-                <h3 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-maroon-brand leading-tight">
+                <h3 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-maroon-brand leading-tight text-center lg:text-left">
                   {service.title}
                 </h3>
 
-                <p className="text-maroon-brand/90 font-medium text-base md:text-xl leading-relaxed max-w-2xl">
+                <p className="text-maroon-brand/90 font-medium text-sm xs:text-base md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
                   {service.description}
                 </p>
               </div>

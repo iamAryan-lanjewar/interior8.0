@@ -27,24 +27,24 @@ export default function FreeConsultation({ onOpenConsultation }) {
           </div>
         </div>
 
-        {/* Right Side: Copy & Brand Logo */}
-        <div className="lg:col-span-6 flex flex-col justify-between h-full space-y-6 md:space-y-10">
+        {/* Right Side: Copy & Brand Logo - Centered on Mobile */}
+        <div className="lg:col-span-6 flex flex-col justify-between h-full space-y-6 md:space-y-10 text-center lg:text-left">
           <div>
-            {/* Section Title */}
-            <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-maroon-brand leading-tight tracking-tight mb-4 md:mb-8 group-hover:text-maroon-dark transition-colors">
-              Free color <br />
+            {/* Section Title Centered on Mobile */}
+            <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-maroon-brand leading-tight tracking-tight mb-4 md:mb-8 group-hover:text-maroon-dark transition-colors text-center lg:text-left">
+              Free color <br className="hidden sm:inline" />
               consultation
             </h2>
 
-            {/* Paragraph Text */}
-            <p className="text-maroon-brand/90 font-medium text-base md:text-xl leading-relaxed max-w-xl">
+            {/* Paragraph Text Centered on Mobile */}
+            <p className="text-maroon-brand/90 font-medium text-sm xs:text-base md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
               Book a complimentary design session this month and receive a free color, layout, and material consultation. We'll help you discover a style that perfectly suits your home's character, light, and flow.
             </p>
           </div>
 
-          {/* Bottom Brand Logo */}
+          {/* Bottom Brand Logo Centered on Mobile */}
           <div className="pt-6 md:pt-8 border-t border-maroon-brand/20">
-            <div className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-maroon-brand tracking-tighter uppercase leading-none select-none">
+            <div className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-maroon-brand tracking-tighter uppercase leading-none select-none text-center lg:text-left">
               R K Interior
             </div>
           </div>
@@ -53,4 +53,3 @@ export default function FreeConsultation({ onOpenConsultation }) {
     </section>
   );
 }
-
