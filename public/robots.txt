@@ -24,4 +24,4 @@ Allow: /assets/
 
 # Crawl Delay & Sitemap
 Crawl-delay: 0
-Sitemap: http://localhost:5173/sitemap.xml
+Sitemap: https://builddear.com/sitemap.xml
