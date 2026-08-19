@@ -1,5 +1,23 @@
 import React from 'react';
-import { Facebook, Instagram, MessageCircle, Mail, MapPin, Phone, ExternalLink } from 'lucide-react';
+import { Facebook, Instagram, Mail, MapPin, Phone, ExternalLink } from 'lucide-react';
+
+// Clean Outline WhatsApp Icon matching the exact stroke & style of Lucide Facebook/Instagram
+function WhatsAppIcon({ className = "w-5 h-5 sm:w-6 sm:h-6" }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+      <path d="M9.5 9.5c.2-.4.4-.4.6-.4h.5c.2 0 .4 0 .5.4l.7 1.7c.1.3 0 .5-.1.7l-.4.5c-.1.1-.2.3 0 .6.4.8 1.1 1.5 1.9 1.9.3.2.5.1.6 0l.5-.4c.2-.2.4-.2.7-.1l1.7.7c.4.1.4.3.4.5v.5c0 .2 0 .4-.4.6-.8.4-2 .2-3.6-.8-1.7-1.1-2.8-2.6-3.2-3.4-.4-.8-.4-1.6 0-2z" />
+    </svg>
+  );
+}
 
 export default function FooterSection() {
   return (
@@ -18,7 +36,7 @@ export default function FooterSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
       </div>
 
-      {/* Main Footer Content - Left aligned on Mobile */}
+      {/* Main Footer Content - Left aligned on Mobile & PC */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 md:px-10 w-full py-12 md:py-24 flex-1 flex flex-col justify-between">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           {/* Left Column: Text Copy & Social Media Info */}
@@ -34,7 +52,7 @@ export default function FooterSection() {
               </p>
             </div>
 
-            {/* Social Media Block */}
+            {/* Social Media Block strictly matching the same theme for Facebook, Instagram & WhatsApp */}
             <div className="space-y-3 pt-2">
               <h3 className="font-display font-bold text-lg sm:text-xl text-white">
                 Connect with us
@@ -64,10 +82,10 @@ export default function FooterSection() {
                   href="https://wa.me/919823577149?text=Hello%20RK%20Interior,%20I%20would%20like%20to%20inquire%20about%20interior%20design%20and%20wallpaper%20services."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-[#25D366] hover:text-white text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md border border-white/15 active:scale-95"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-pink-brand hover:text-maroon-brand text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md border border-white/15 active:scale-95"
                   aria-label="WhatsApp with 9823577149"
                 >
-                  <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <WhatsAppIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               </div>
             </div>
