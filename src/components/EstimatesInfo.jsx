@@ -26,34 +26,34 @@ export default function EstimatesInfo({ onOpenQuote }) {
           </div>
         </div>
 
-        {/* Right Side: Copy & Content - Centered on Mobile */}
-        <div className="lg:col-span-6 space-y-6 md:space-y-8 text-center lg:text-left">
+        {/* Right Side: Copy & Content - Starts from Right Side on Mobile */}
+        <div className="lg:col-span-6 space-y-6 md:space-y-8 text-right lg:text-left">
           <div>
-            <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-maroon-brand leading-tight tracking-tight mb-4 md:mb-6 text-center lg:text-left">
+            <h2 className="font-display font-extrabold text-2xl xs:text-3xl sm:text-5xl md:text-6xl text-maroon-brand leading-tight tracking-tight mb-4 md:mb-6 text-right lg:text-left">
               Why estimates matter
             </h2>
 
-            <div className="font-display font-bold text-lg sm:text-xl md:text-2xl text-maroon-brand/90 mb-4 md:mb-6 flex items-center justify-center lg:justify-start gap-2">
-              <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-pink-vivid shrink-0" />
-              <span>Precision saves you money.</span>
+            <div className="font-display font-bold text-lg sm:text-xl md:text-2xl text-maroon-brand/90 mb-4 md:mb-6 flex items-center justify-end lg:justify-start gap-2">
+              <span className="order-1 lg:order-2">Precision saves you money.</span>
+              <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-pink-vivid shrink-0 order-2 lg:order-1" />
             </div>
 
-            <p className="text-maroon-brand/90 font-medium text-sm xs:text-base md:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0 mb-6 md:mb-8">
+            <p className="text-maroon-brand/90 font-medium text-sm xs:text-base md:text-xl leading-relaxed max-w-xl ml-auto lg:ml-0 mb-6 md:mb-8 text-right lg:text-left">
               Accurate planning saves time and budget. Our estimates are obligation-free—no pressure, just honest guidance on the best design approach for your space.
             </p>
 
-            {/* Benefit Checklist */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 max-w-md mx-auto lg:mx-0">
+            {/* Benefit Checklist - Right aligned on mobile */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 max-w-md ml-auto lg:ml-0">
               {['Detailed space measurements', 'Zero hidden costs', 'Fast 24-hour turnaround', 'Obligation-free advice'].map((item, idx) => (
-                <div key={idx} className="flex items-center justify-center sm:justify-start gap-2.5 text-maroon-brand font-semibold text-xs sm:text-base">
-                  <span className="w-5 h-5 rounded-full bg-white flex items-center justify-center text-maroon-brand font-bold text-xs shrink-0 shadow-sm">✓</span>
-                  <span>{item}</span>
+                <div key={idx} className="flex items-center justify-end sm:justify-start gap-2.5 text-maroon-brand font-semibold text-xs sm:text-base">
+                  <span className="order-1 sm:order-2">{item}</span>
+                  <span className="w-5 h-5 rounded-full bg-white flex items-center justify-center text-maroon-brand font-bold text-xs shrink-0 shadow-sm order-2 sm:order-1">✓</span>
                 </div>
               ))}
             </div>
 
-            {/* CTA Button */}
-            <div className="flex justify-center lg:justify-start">
+            {/* CTA Button - Right aligned on mobile */}
+            <div className="flex justify-end lg:justify-start">
               <button
                 onClick={onOpenQuote}
                 className="bg-maroon-brand hover:bg-maroon-dark text-white font-display font-extrabold text-xs xs:text-sm sm:text-base px-7 py-3.5 sm:px-8 sm:py-4 rounded-full shadow-xl hover-lift transition-all duration-300 flex items-center gap-3 active:scale-95 cursor-pointer"
