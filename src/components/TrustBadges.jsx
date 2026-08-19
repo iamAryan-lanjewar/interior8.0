@@ -32,16 +32,16 @@ export default function TrustBadges() {
           {trustCards.map((card, index) => (
             <div
               key={index}
-              className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-card hover-lift flex flex-col justify-between min-h-[220px] md:min-h-[300px] border border-white/60"
+              className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-card hover-lift flex flex-col justify-between min-h-[220px] md:min-h-[300px] border border-white/60 text-center md:text-left"
             >
-              {/* Card Title matching PDF 2-line structure */}
-              <h3 className="font-display font-extrabold text-xl sm:text-2xl md:text-3xl text-maroon-brand leading-tight">
+              {/* Card Title centered on mobile, left-aligned on desktop */}
+              <h3 className="font-display font-extrabold text-xl sm:text-2xl md:text-3xl text-maroon-brand leading-tight text-center md:text-left">
                 {card.title1} <br />
                 {card.title2}
               </h3>
 
-              {/* Card Description matching PDF text */}
-              <p className="text-maroon-brand/90 font-medium text-sm sm:text-base md:text-lg leading-relaxed mt-6 md:mt-12">
+              {/* Card Description centered on mobile, left-aligned on desktop */}
+              <p className="text-maroon-brand/90 font-medium text-sm sm:text-base md:text-lg leading-relaxed mt-6 md:mt-12 text-center md:text-left">
                 {card.description}
               </p>
             </div>
