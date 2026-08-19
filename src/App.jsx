@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import TrustBadges from './components/TrustBadges';
 import FreeConsultation from './components/FreeConsultation';
@@ -69,6 +70,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-sky-brand font-sans antialiased text-maroon-brand selection:bg-pink-brand selection:text-maroon-brand pb-20 sm:pb-0">
+      {/* Standalone Top Right Animated Navigation Menu - PC ONLY */}
+      <Navbar />
+
       <main>
         {/* Page 1: Hero */}
         <HeroSection onOpenConsultation={() => setConsultationOpen(true)} />

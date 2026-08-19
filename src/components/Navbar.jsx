@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Home, 
-  Info,
+  Info, 
   Layers, 
   Palette, 
   Image as ImageIcon, 
   Calculator, 
   Send, 
   Phone, 
-  ArrowRight,
-  X
+  ArrowRight, 
+  X 
 } from 'lucide-react';
 
 export default function Navbar() {
@@ -58,15 +58,15 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Standalone Top Right Floating Menu Button - Scrolls seamlessly with website */}
-      <div className="fixed top-4 right-4 sm:top-6 sm:right-8 z-40">
+      {/* Standalone Floating Menu Button - PC ONLY (hidden on mobile, visible on sm/md/lg/xl) */}
+      <div className="hidden sm:block fixed top-4 right-4 sm:top-6 sm:right-8 z-40">
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle navigation menu"
           aria-expanded={isOpen}
           className="group relative flex items-center gap-3.5 bg-white/90 hover:bg-white text-maroon-brand backdrop-blur-md border border-white/80 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
         >
-          {/* Aesthetic 3 Lines Container with increased Y-axis vertical spacing */}
+          {/* Aesthetic 3 Lines Container */}
           <div className="relative w-6 h-6 sm:h-7 flex flex-col justify-between items-center py-0.5">
             {/* Line 1 */}
             <span className={`block w-6 h-0.5 bg-maroon-brand rounded-full transition-all duration-300 ease-in-out transform origin-center ${
@@ -143,7 +143,6 @@ export default function Navbar() {
             
             <ul className="space-y-2">
               {navItems.map((item) => {
-                const IconComp = item.icon;
                 return (
                   <li key={item.id}>
                     <button
