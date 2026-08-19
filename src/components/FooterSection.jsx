@@ -61,11 +61,11 @@ export default function FooterSection() {
                 </a>
 
                 <a
-                  href="https://whatsapp.com"
+                  href="https://wa.me/919823577149?text=Hello%20RK%20Interior,%20I%20would%20like%20to%20inquire%20about%20interior%20design%20and%20wallpaper%20services."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-pink-brand hover:text-maroon-brand text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md border border-white/15 active:scale-95"
-                  aria-label="WhatsApp"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-[#25D366] hover:text-white text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-md border border-white/15 active:scale-95"
+                  aria-label="WhatsApp with 9823577149"
                 >
                   <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
@@ -86,8 +86,8 @@ export default function FooterSection() {
               </p>
               <p className="text-white/90 text-sm sm:text-lg flex items-center gap-2.5">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-pink-brand shrink-0" />
-                <a href="tel:1234567890" className="hover:text-pink-brand transition-colors py-1">
-                  (123) 456 7890
+                <a href="tel:9823577149" className="hover:text-pink-brand transition-colors py-1">
+                  +91 9823577149
                 </a>
               </p>
 
