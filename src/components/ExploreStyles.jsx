@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 export default function ExploreStyles() {
@@ -42,6 +44,8 @@ export default function ExploreStyles() {
                 <img
                   src={style.image}
                   alt={`${style.title} Interior Design Style by RK Interior`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute top-3 left-3 bg-maroon-brand/90 backdrop-blur-md text-white text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-md">

@@ -71,6 +71,12 @@ while ($Listener.IsListening) {
             $Response.ContentType = $ContentType
             $Response.Headers.Add("Access-Control-Allow-Origin", "*")
 
+            if ($UrlPath.StartsWith("/assets/")) {
+                $Response.Headers.Add("Cache-Control", "public, max-age=31536000, immutable")
+            } else {
+                $Response.Headers.Add("Cache-Control", "no-cache, must-revalidate")
+            }
+
             $Bytes = [System.IO.File]::ReadAllBytes($LocalFile)
             $Response.ContentLength64 = $Bytes.Length
             $Response.OutputStream.Write($Bytes, 0, $Bytes.Length)

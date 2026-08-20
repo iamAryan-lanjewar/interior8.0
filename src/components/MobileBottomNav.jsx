@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Home, Image as ImageIcon, Phone, Sparkles } from 'lucide-react';
 

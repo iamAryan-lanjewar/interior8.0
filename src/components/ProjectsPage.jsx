@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Maximize2, ArrowLeft, Eye, Calendar } from 'lucide-react';
 

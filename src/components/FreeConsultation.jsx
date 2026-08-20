@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 export default function FreeConsultation({ onOpenConsultation }) {
@@ -22,6 +24,8 @@ export default function FreeConsultation({ onOpenConsultation }) {
             <img
               src="/assets/consultation_nursery.jpg"
               alt="Free interior design consultation by RK Interior"
+              loading="lazy"
+              decoding="async"
               className="w-full h-[260px] xs:h-[320px] sm:h-[450px] lg:h-[550px] object-cover object-center hover:scale-105 transition-transform duration-700"
             />
           </div>

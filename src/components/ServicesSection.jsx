@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Layers, RefreshCw, Wrench } from 'lucide-react';
 

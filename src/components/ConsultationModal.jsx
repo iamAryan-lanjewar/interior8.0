@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { X, Sparkles, CheckCircle2, Phone, Mail, User, Layers, Calendar, ExternalLink } from 'lucide-react';
 
