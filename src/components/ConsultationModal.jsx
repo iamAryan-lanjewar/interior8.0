@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, Sparkles, CheckCircle2, Phone, Mail, User, Layers, Calendar, ExternalLink } from 'lucide-react';
+import { X, Sparkles, CheckCircle2, Phone, Mail, User, Layers, Calendar } from 'lucide-react';
 
 export default function ConsultationModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -31,31 +31,57 @@ export default function ConsultationModal({ isOpen, onClose }) {
     setSubmitting(true);
     const formattedPhone = formData.phone.trim();
 
+    const payload = {
+      "Customer Name": formData.name,
+      "Mobile Number": formattedPhone,
+      "Email Address": formData.email || "Not provided",
+      "Service": formData.service,
+      "Preferred Time": formData.timeSlot,
+      "_subject": `New RK Interior Consultation Booking: ${formData.name} (${formattedPhone})`,
+      "_template": "table",
+      "_captcha": "false",
+      "_replyto": formData.email || undefined
+    };
+
     try {
-      await fetch("https://formsubmit.co/ajax/instinctt20@gmail.com", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        body: JSON.stringify({
-          "Customer Name": formData.name,
-          "Mobile Number": formattedPhone,
-          "Email Address": formData.email || "Not provided",
-          "Service": formData.service,
-          "Preferred Time": formData.timeSlot,
-          "_subject": `New Consultation Inquiry: ${formData.name} - ${formattedPhone}`,
-          "_template": "table",
-          "_captcha": "false",
-          "_replyto": formData.email || undefined
-        })
+        body: JSON.stringify(payload)
       });
+
+      if (!response.ok) {
+        await fetch("https://formsubmit.co/ajax/instinctt20@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+      }
 
       setSubmittedData({ ...formData, phone: formattedPhone });
       setSubmitting(false);
       setSubmitted(true);
     } catch (err) {
-      console.warn("Consultation form notice:", err);
+      console.warn("Direct dispatch fallback:", err);
+      try {
+        await fetch("https://formsubmit.co/ajax/instinctt20@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+      } catch (e) {
+        console.warn("Notice:", e);
+      }
+
       setSubmittedData({ ...formData, phone: formattedPhone });
       setSubmitting(false);
       setSubmitted(true);
@@ -100,6 +126,7 @@ export default function ConsultationModal({ isOpen, onClose }) {
                 <div><strong>Mobile:</strong> <span className="font-bold text-maroon-brand">{submittedData.phone}</span></div>
                 {submittedData.email && <div><strong>Email:</strong> {submittedData.email}</div>}
                 <div><strong>Service:</strong> {submittedData.service}</div>
+                <div><strong>Time Slot:</strong> {submittedData.timeSlot}</div>
               </div>
             )}
 

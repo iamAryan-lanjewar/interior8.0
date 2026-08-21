@@ -1,9 +1,24 @@
 # ==============================================================================
-# RK Interior & NEST WALLPAPERS / Builddear Production .htaccess
-# Handles: Force HTTPS, Gzip Compression, Browser Caching, Security & SPA Routing
+# RK Interior & NEST WALLPAPERS Production Hardened .htaccess
+# Security, Performance, Force SSL, SEO Canonicalization & Asset Caching
 # ==============================================================================
 
-# 1. FORCE HTTPS REDIRECTION (Port 80 -> Port 443 SSL)
+# 1. DISABLE DIRECTORY BROWSING & SERVER SIGNATURES
+Options -Indexes -MultiViews
+ServerSignature Off
+
+# 2. BLOCK SENSITIVE & HIDDEN FILES (.env, .git, .json, .lock, .config, .md)
+<FilesMatch "^\.|\.(env|git|json|lock|config|mjs|md|log|bak|sql|sh|ps1)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# 3. FORCE HTTPS REDIRECTION (Port 80 -> Port 443 SSL)
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -13,28 +28,43 @@
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # Redirect www to non-www (canonicalize)
-  # RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-  # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+  # Block common malicious query string attacks (SQL Injection, XSS, Path Traversal)
+  RewriteCond %{QUERY_STRING} (eval\(|document\.cookie|base64_|javascript:|(\.\./)|boot\.ini|/etc/passwd) [NC,OR]
+  RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
+  RewriteCond %{QUERY_STRING} (UNION|SELECT|INSERT|UPDATE|DELETE|DROP|DECLARE|EXEC).* [NC]
+  RewriteRule .* - [F,L]
 
-  # SPA fallback: Send all requests to index.html if file doesn't exist
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ index.html [L]
+  # Block malicious user agents & scraper exploit bots
+  RewriteCond %{HTTP_USER_AGENT} (libwww-perl|wget|python|nikto|curl|scan|sqlmap|nmap|havij) [NC]
+  RewriteRule .* - [F,L]
 </IfModule>
 
-# 2. HTTP SECURITY & HSTS HEADERS
+# 4. ENTERPRISE HTTP SECURITY & HSTS HEADERS
 <IfModule mod_headers.c>
-  # Force browsers to remember HTTPS for 1 year
-  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
-  Header set X-Content-Type-Options "nosniff"
-  Header set X-Frame-Options "SAMEORIGIN"
-  Header set X-XSS-Protection "1; mode=block"
-  Header set Referrer-Policy "strict-origin-when-cross-origin"
-  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  # 2-Year HSTS with preload and subdomains
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" env=HTTPS
+  
+  # Prevent Clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+  
+  # Prevent MIME-Sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  
+  # XSS Protection
+  Header always set X-XSS-Protection "1; mode=block"
+  
+  # Referrer Policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Disable unnecessary device hardware APIs
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  
+  # Cross-Origin Policies
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "cross-origin"
 </IfModule>
 
-# 3. GZIP / DEFLATE SPEED COMPRESSION (Saves 65-80% bandwidth & super fast loading)
+# 5. GZIP / DEFLATE SPEED COMPRESSION (Saves 70-80% bandwidth & super fast loading)
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/plain
   AddOutputFilterByType DEFLATE text/html
@@ -54,7 +84,7 @@
   AddOutputFilterByType DEFLATE font/woff2
 </IfModule>
 
-# 4. BROWSER CACHING (Instant repeat visits)
+# 6. BROWSER CACHING (Instant Repeat Visits & High Performance)
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"
@@ -67,7 +97,7 @@
   ExpiresByType application/xml "access plus 0 seconds"
   ExpiresByType text/xml "access plus 0 seconds"
 
-  # CSS and JavaScript (Vite produces hash names, safe for 1 year)
+  # CSS & JavaScript
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType text/javascript "access plus 1 year"

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import Link from 'next/link';
 import { Maximize2 } from 'lucide-react';
 
 export default function ProjectGallery({ onSelectImage, onOpenProjects }) {
@@ -68,7 +68,7 @@ export default function ProjectGallery({ onSelectImage, onOpenProjects }) {
 
               {/* Project Title directly below image in exact brand font style */}
               <div className="mt-3.5 px-1 text-center sm:text-left">
-                <h3 className="font-display font-extrabold text-xl sm:text-2xl text-maroon-brand leading-snug group-hover:text-pink-vivid transition-colors">
+                <h3 className="font-display font-extrabold text-xl sm:text-2xl text-maroon-brand leading-snug group-hover:text-pink-600 transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-maroon-brand/80 text-xs sm:text-sm font-medium mt-1">
@@ -81,19 +81,14 @@ export default function ProjectGallery({ onSelectImage, onOpenProjects }) {
 
         {/* Projects Button on the Bottom Right */}
         <div className="flex justify-end mt-8 sm:mt-12">
-          <button
-            onClick={() => {
-              if (onOpenProjects) {
-                onOpenProjects();
-              } else {
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
+          <Link
+            href="/projects"
+            prefetch={false}
             className="bg-maroon-brand hover:bg-maroon-dark text-white font-display font-extrabold text-sm sm:text-base px-7 py-3 sm:px-8 sm:py-3.5 rounded-full shadow-xl hover-lift transition-all duration-300 flex items-center gap-2.5 cursor-pointer"
           >
             <span>Projects</span>
             <span className="text-pink-brand font-bold text-lg">→</span>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, CheckCircle, Clock, Phone, Mail, User, Layers, MessageSquare, ExternalLink } from 'lucide-react';
+import { Send, CheckCircle, Clock, Phone, Mail, User, Layers, MessageSquare } from 'lucide-react';
 
 export default function QuoteFormSection() {
   const [formData, setFormData] = useState({
@@ -60,14 +60,15 @@ export default function QuoteFormSection() {
       "Email Address": formData.email,
       "Service": formData.service,
       "Customer Inquiry / Message": formData.message || "No specific details provided",
-      "_subject": `New Customer Inquiry: ${formData.name} - ${formattedPhone}`,
+      "_subject": `New RK Interior Quote Request: ${formData.name} (${formattedPhone})`,
       "_template": "table",
       "_captcha": "false",
       "_replyto": formData.email
     };
 
     try {
-      await fetch("https://formsubmit.co/ajax/instinctt20@gmail.com", {
+      // Send via robust server-side route
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -76,6 +77,18 @@ export default function QuoteFormSection() {
         body: JSON.stringify(payload)
       });
 
+      if (!response.ok) {
+        // Direct FormSubmit fallback
+        await fetch("https://formsubmit.co/ajax/instinctt20@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+      }
+
       const currentData = { ...formData, phone: formattedPhone };
       setStatus({
         submitting: false,
@@ -87,11 +100,24 @@ export default function QuoteFormSection() {
         name: '',
         phone: '',
         email: '',
-        service: 'Full Room Installation',
+        service: 'Interior Space Planning',
         message: ''
       });
     } catch (err) {
-      console.warn("Form notice:", err);
+      console.warn("Direct dispatch fallback:", err);
+      try {
+        await fetch("https://formsubmit.co/ajax/instinctt20@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+      } catch (e) {
+        console.warn("Notice:", e);
+      }
+
       const currentData = { ...formData, phone: formattedPhone };
       setStatus({
         submitting: false,
@@ -103,7 +129,7 @@ export default function QuoteFormSection() {
         name: '',
         phone: '',
         email: '',
-        service: 'Full Room Installation',
+        service: 'Interior Space Planning',
         message: ''
       });
     }
