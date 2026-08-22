@@ -211,7 +211,7 @@ export default function ProjectsPage({ onBackToHome, onSelectImage, onBookAppoin
 
       {/* Clean Aesthetic Footer */}
       <footer className="pt-12 sm:pt-16 text-center text-[10px] sm:text-xs text-maroon-brand/80 font-extrabold tracking-wider uppercase">
-        © RK Interior &amp; NEST WALLPAPERS • All Rights Reserved
+        © RK Interior • All Rights Reserved
       </footer>
     </div>
   );

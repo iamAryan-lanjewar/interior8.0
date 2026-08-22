@@ -24,7 +24,7 @@ export default function FooterSection() {
       <div className="absolute inset-0 z-0">
         <img
           src="/assets/footer_bg.jpg"
-          alt="NEST Wallpapers moody room background"
+          alt="RK Interior moody room background"
           loading="lazy"
           decoding="async"
           className="w-full h-full object-cover object-center scale-105"
@@ -160,12 +160,12 @@ export default function FooterSection() {
         {/* Bottom Logo & Copyright */}
         <div className="pt-8 mt-8 md:pt-16 md:mt-16 border-t border-white/15 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 sm:gap-6">
           <div className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-white tracking-tighter uppercase leading-none select-none">
-            NEST <br />
-            WALLPAPERS
+            RK <br />
+            INTERIOR
           </div>
 
           <div className="text-white/60 text-xs font-medium">
-            © {new Date().getFullYear()} RK Interior &amp; NEST WALLPAPERS. All rights reserved.
+            © {new Date().getFullYear()} RK Interior. All rights reserved.
           </div>
         </div>
       </div>
